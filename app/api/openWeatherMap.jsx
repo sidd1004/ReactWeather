@@ -9,16 +9,12 @@ module.exports = {
 
         return axios.get(requestUrl).then(function (res) {
             if (res.data.cod && res.data.message) {
-                debugger;
-                console.log(res.data.message);
                 throw new Error(res.data.message);
             }
             else {
-                debugger;
                 return res.data.main.temp;
             }
         }, function (res) {
-            debugger;
             throw new Error(res.response.data.message);
         });
     }
